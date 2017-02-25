@@ -1,198 +1,318 @@
-java分了5片内存。
-1：寄存器。2：本地方法区。3：方法区。4：栈。5：堆。
-栈：存储的都是局部变量 ( 函数中定义的变量，函数上的参数，语句中的变量 )；
-	只要数据运算完成所在的区域结束，该数据就会被释放。
-堆：用于存储数组和对象，也就是实体。啥是实体啊？就是用于封装多个数据的。
-1：每一个实体都有内存首地址值。
-2：堆内存中的变量都有默认初始化值。因为数据类型不同，值也不一样。 
-3：垃圾回收机制。
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>bootstrap项目实战</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-maizi.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+</head>
+<body>
+<!--导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!--小屏幕导航按钮和logo-->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">麦子学院</a>
+        </div>
+        <!--小屏幕导航按钮和logo-->
+        <!--导航-->
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#bbs">论坛</a></li>
+                <li><a href="#html5">前端开发</a></li>
+                <li><a href="#course">最新课程</a></li>
+                <li><a href="#app">移动APP</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+        <!--导航-->
 
-面向对象:
-1：将复杂的事情简单化。
-2：面向对象将以前的过程中的执行者，变成了指挥者。
-3：面向对象这种思想是符合现在人们思考习惯的一种思想。
-构造代码块和构造函数有什么区别？
-构造代码块：是给所有的对象进行初始化，也就是说，所有的对象都会调用一个代码块。只要对象一建立。就会调用这个代码块。
-构造函数：是给与之对应的对象进行初始化。它具有针对性。
+    </div>
+</nav>
+<!--导航-->
 
-静态代码块、构造代码块、构造函数同时存在时的执行顺序：静态代码块  构造代码块  构造函数；
+<!--home-->
+<section id="home">
+    <div class="lvjing">
+        <div class="container">
+            <div class="row wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <h1>bootstrap实战课程等你来战！</h1>
+                    <p>
+                        本套课程适用于：1.WEB开发人员；2.网站维护人员、管理人员<br/>
+                        培训技能的目标：使用bootstrap框架快速构建响应式网页，颠覆传统WEB前端！
+                    </p>
+                    <img src="images/php.jpg" class="img-responsive" alt="php"/>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--home-->
 
-单例设计模式：★★★★★
-解决的问题：保证一个类在内存中的对象唯一性。
+<!--bbs-->
+<section id="bbs">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-duration="0.5s">
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="images/a.png" class="img-responsive" alt=""/>
+                    <h3>Android开发</h3>
+                    <p>Android开发技术交流、问题求助、实战案例分享</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="images/i.png" class="img-responsive" alt=""/>
+                    <h3>IOS开发</h3>
+                    <p>iOS开发技术交流，海量iOS实战干货分享</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="http://www.maiziedu.com" target="_blank">
+                    <img src="images/b.png" class="img-responsive" alt=""/>
+                    <h3>嵌入式底层开发</h3>
+                    <p>底层嵌入式开发、实战案例等技术交流讨论</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--bbs-->
 
-代码体现：
-1，私有化构造函数；
-2，创建私有并静态的本类对象；
-3，定义公有并静态的方法，返回该对象。
----------------------------------------------
-//饿汉式
-class Single{
-	private Single(){} //私有化构造函数。
-private static Single s = new Single(); //创建私有并静态的本类对象。
-	public static Single getInstance(){ //定义公有并静态的方法，返回该对象。
-		return s;
-	}
-}
----------------------------------------------
-//懒汉式:延迟加载方式。
-class Single2{
-	private Single2(){}
-private static Single2 s = null;
-	public static Single2 getInstance(){
-		if(s==null)
-			s = new Single2();
-		return s;
-	}
-}
+<!--html5-->
+<section id="html5">
+    <div class="container">
+        <div class="col-md-6 wow fadeInLeft">
+            <h2>HTML5前端开发</h2>
+            <p>一线资深前端开发工程师倾情打造！助你完成普通程序员到优秀工程师的华丽升级！</p>
+            <p><span class="glyphicon glyphicon-grain mai-icon"></span>使用HTML5与CSS3技术轻松实现设备自适应展示。</p>
+            <p><span class="glyphicon glyphicon-grain mai-icon"></span>清晰明了的语义代码结构，更高的可读性、更利于页面维护的。</p>
+        </div>
+        <div class="col-md-6 wow fadeInRight">
+            <img src="images/html5.jpg" class="img-responsive" alt=""/>
+        </div>
+    </div>
+</section>
+<!--html5-->
+
+<!--bootstrap-->
+<section id="bootstrap">
+    <div class="container wow fadeInUp">
+        <div class="col-md-6">
+            <img src="images/Bootstrap.jpg" class="img-responsive" alt=""/>
+        </div>
+        <div class="col-md-6">
+            <h2>bootstrap实战视频教程</h2>
+            <p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+            <p><span class="glyphicon glyphicon-grain mai-icon"></span>你的网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备。</p>
+            <p><span class="glyphicon glyphicon-grain mai-icon"></span>Bootstrap 提供了全面、美观的文档。你能在这里找到关于 HTML 元素、HTML 和 CSS 组件、jQuery 插件方面的所有详细文档。</p>
+        </div>
+    </div>
+</section>
+<!--bootstrap-->
+
+<!--course-->
+<section id="course">
+    <div class="container">
+        <div class="row wow fadeIn" data-wow-delay="0.6s">
+            <div class="col-md-12">
+                <h2>最新课程</h2>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course">
+                    <img src="images/swift.jpg" class="img-responsive" alt=""/>
+                    <a href="http://www.maiziedu.com" class="btn btn-primary" target="_blank" role="button">
+                        加入学习
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--course-->
+
+<!--app-->
+<section id="app">
+    <div class="container">
+        <div class="row  wow fadeInUp">
+            <div class="col-md-6">
+                <h2>麦子学院移动APP下载</h2>
+                <p>
+                    全新UI交互，与新网站数据同步，更加丰富的课程，开启精彩无限，语音搜索课程，喊出你想要的课程，一件收藏，方便自己重复学习，离线下载课程，在哪儿都能开！
+                </p>
+                <button class="btn btn-primary">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    iPhone版
+                </button>
+                <button class="btn btn-primary">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    Android版
+                </button>
+            </div>
+            <div class="col-md-6">
+                <img src="images/app-banner.jpg" class="img-responsive" alt=""/>
+            </div>
+        </div>
+    </div>
+</section>
+<!--app-->
+
+<!--contact-->
+<section id="contact">
+    <div class="lvjing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6  wow fadeInLeft">
+                    <h2>
+                        <span class="glyphicon glyphicon-send"></span>
+                        &nbsp;
+                        联系小麦
+                    </h2>
+                    <p>
+                        麦子学院是成都麦子信息技术有限公司旗下一个IT在线教育平台，目前已有30万注册用户，10万以上APP下载量，5000小时视频内容。 我们从不说空话，专注于IT在线教育，脱离传统教育的束缚，让你走哪学哪，想学就学。逗比的老师，贴心的助教，在这儿你能感受到来自五 湖四海伙伴们热情和踏实的学习态度！
+                    </p>
+                    <address>
+                        <p>
+                            <span class="glyphicon glyphicon-home"></span>
+                            &nbsp;
+                            地址:成都市高新区天府软件园D5-11
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-phone-alt"></span>
+                            &nbsp;
+                            联系电话：028-86567913
+                        </p>
+                        <p>
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            &nbsp;
+                            邮箱:hr@maiziedu.com
+                        </p>
+                    </address>
+                </div>
+                <div class="col-md-6  wow fadeInRight">
+                    <form action="#" method="post">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="您的姓名"/>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="您的邮箱"/>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="标题"/>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea class="form-control" placeholder="留言内容" rows="4"></textarea>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="submit" class="form-control" value="提交"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--contact-->
+
+<!--footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Copyright&nbsp;©&nbsp;2012-2015&nbsp;&nbsp;www.maiziedu.com&nbsp;&nbsp;蜀ICP备13014270号-4
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer-->
 
 
-final特点：
-1：这个关键字是一个修饰符，可以修饰类，方法，变量。
-2：被final修饰的类是一个最终类，不可以被继承。
-3：被final修饰的方法是一个最终方法，不可以被覆盖。
-4：被final修饰的变量是一个常量，只能赋值一次。
-
-
-
-抽象类的特点：
-1：抽象方法只能定义在抽象类中，抽象类和抽象方法必须由abstract关键字修饰（可以描述类和方法，不可以描述变量）。
-2：抽象方法只定义方法声明，并不定义方法实现。
-3：抽象类不可以被创建对象(实例化)。
-4：只有通过子类继承抽象类并覆盖了抽象类中的所有抽象方法后，该子类才可以实例化。否则，该子类还是一个抽象类。
-
-
-
-模板方法设计模式：
-解决的问题：当功能内部一部分实现时确定，一部分实现是不确定的。这时可以把不确定的部分暴露出去，让子类去实现。
-abstract class GetTime{
-	public final void getTime(){ //此功能如果不需要复写，可加final限定
-		long start = System.currentTimeMillis();
-		code(); //不确定的功能部分，提取出来，通过抽象方法实现
-		long end = System.currentTimeMillis();
-		System.out.println("毫秒是："+(end-start));
-	}
-	public abstract void code(); //抽象不确定的功能，让子类复写实现
-}
-class SubDemo extends GetTime{
-	public void code(){ //子类复写功能方法
-		for(int y=0; y<1000; y++){
-			System.out.println("y");
-		}
-	}
-}
-                         
-                         
- 接口都用于设计上，设计上的特点：（可以理解主板上提供的接口）
-1：接口是对外提供的规则。
-2：接口是功能的扩展。
-3：接口的出现降低了耦合性。
-                         
-                         
-抽象类和接口的区别：
-1：抽象类只能被继承，而且只能单继承。
-接口需要被实现，而且可以多实现。 
-2：抽象类中可以定义非抽象方法，子类可以直接继承使用。
-接口中都有抽象方法，需要子类去实现。
-3：抽象类使用的是  is a 关系。
-接口使用的 like a 关系。 
-4：抽象类的成员修饰符可以自定义。
-接口中的成员修饰符是固定的。全都是public的。
-                         
-                         
- 多态在子父类中的成员上的体现的特点：
-1，成员变量：在多态中，子父类成员变量同名。
-	在编译时期：参考的是引用型变量所属的类中是否有调用的成员。（编译时不产生对象，只检查语法错误）
-	运行时期：也是参考引用型变量所属的类中是否有调用的成员。
-	简单一句话：无论编译和运行，成员变量参考的都是引用变量所属的类中的成员变量。
-	再说的更容易记忆一些：成员变量 --- 编译运行都看 = 左边。
-2，成员函数。
-	编译时期：参考引用型变量所属的类中是否有调用的方法。
-	运行事情：参考的是对象所属的类中是否有调用的方法。
-	为什么是这样的呢？因为在子父类中，对于一模一样的成员函数，有一个特性：覆盖。
-	简单一句：成员函数，编译看引用型变量所属的类，运行看对象所属的类。
-	更简单：成员函数 --- 编译看 = 左边，运行看 = 右边。
-3，静态函数。 
-	编译时期：参考的是引用型变量所属的类中是否有调用的成员。
-	运行时期：也是参考引用型变量所属的类中是否有调用的成员。
-	为什么是这样的呢？因为静态方法，其实不所属于对象，而是所属于该方法所在的类。
-	调用静态的方法引用是哪个类的引用调用的就是哪个类中的静态方法。
-	简单说：静态函数 --- 编译运行都看 = 左边。
-                         
-                         
-  Object：所有类的直接或者间接父类
-                         
-                         equals、toString、getClass、hashCode，通常equals，toString，hashCode，在应用中都会被复写，建立具体对象的特有的内容。
-                         
-                         
- Throwable：可抛出的。 
-	|--Error：错误，一般情况下，不编写针对性的代码进行处理，通常是jvm发生的，需要对程序进行修正。
-	|--Exception：异常，可以有针对性的处理方式
-                         
-                         
-   throw 和throws关键字的区别：
-throw用于抛出异常对象，后面跟的是异常对象；throw用在函数内。
-throws用于抛出异常类，后面跟的异常类名，可以跟多个，用逗号隔开。throws用在函数上。
-
-通常情况：函数内容如果有throw，抛出异常对象，并没有进行处理，那么函数上一定要声明，否则编译失败。但是也有特殊情况。
-                         
-                         
-编译时被检查的异常和运行时异常的区别：
-编译被检查的异常在函数内被抛出，函数必须要声明，否编译失败。
-声明的原因：是需要调用者对该异常进行处理。
-运行时异常如果在函数内被抛出，在函数上不需要声明。
-不声明的原因：不需要调用者处理，运行时异常发生，已经无法再让程序继续运行，所以，不让调用处理的，直接让程序停止，由调用者对代码进行修正。
-                         
-                         
-自定义异常的步骤：
-1：定义一个子类继承Exception或RuntimeException，让该类具备可抛性。
-2：通过throw 或者throws进行操作。
-                         
-                         
-                         
- 线程状态：
-被创建：start()
-运行：具备执行资格，同时具备执行权；
-冻结：sleep(time),wait()—notify()唤醒；线程释放了执行权，同时释放执行资格；
-临时阻塞状态：线程具备cpu的执行资格，没有cpu的执行权；
-消亡：stop()
-                         
-                         
-为什么要有Runnable接口的出现？
-1：通过继承Thread类的方式，可以完成多线程的建立。但是这种方式有一个局限性，如果一个类已经有了自己的父类，就不可以继承Thread类，因为java单继承的局限性。
-可是该类中的还有部分代码需要被多个线程同时执行。这时怎么办呢？
-只有对该类进行额外的功能扩展，java就提供了一个接口Runnable。这个接口中定义了run方法，其实run方法的定义就是为了存储多线程要运行的代码。
-所以，通常创建线程都用第二种方式。
-因为实现Runnable接口可以避免单继承的局限性。
-
-2：其实是将不同类中需要被多线程执行的代码进行抽取。将多线程要运行的代码的位置单独定义到接口中。为其他类进行功能扩展提供了前提。
-所以Thread类在描述线程时，内部定义的run方法，也来自于Runnable接口。
- 
-实现Runnable接口可以避免单继承的局限性。而且，继承Thread，是可以对Thread类中的方法，进行子类复写的。但是不需要做这个复写动作的话，只为定义线程代码存放位置，实现Runnable接口更方便一些。所以Runnable接口将线程要执行的任务封装成了对象。
-                         
-                         
-解决安全问题的原理：同步
-一个解决方式：就是同步代码块。
-第二种表现形式：同步函数
-                         
-同步代码块和同步函数的区别？
-同步代码块使用的锁可以是任意对象。
-同步函数使用的锁是this，静态同步函数的锁是该类的字节码文件对象。
-在一个类中只有一个同步，可以使用同步函数。如果有多同步，必须使用同步代码块，来确定不同的锁。所以同步代码块相对灵活一些。    
-                         
-                         
-TreeSet集合排序有两种方式，Comparable和Comparator区别：
-1：让元素自身具备比较性，需要元素对象实现Comparable接口，覆盖compareTo方法。
-2：让集合自身具备比较性，需要定义一个实现了Comparator接口的比较器，并覆盖compare方法，并将该类对象作为实际参数传递给TreeSet集合的构造函数。
-第二种方式较为灵活。
-                         
-                         
-  反射的基本步骤：
-1、获得Class对象，就是获取到指定的名称的字节码文件对象。
-2、实例化对象，获得类的属性、方法或构造函数。
-3、访问属性、调用方法、调用构造函数创建对象。
-                         
-  获得Class对象的三种方式：
-	Class.forName(classname)	用于做类加载
-	obj.getClass()				用于获得对象的类型
-	类名.class			    用于获得指定的类型，传参用                       
-                         
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.singlePageNav.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+    $(function(){
+        /*导航跳转效果插件*/
+        $('.nav').singlePageNav({
+            offset:70
+        });
+        /*小屏幕导航点击关闭菜单*/
+        $('.navbar-collapse a').click(function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+        new WOW().init();
+    })
+</script>
+</body>
+</html>
