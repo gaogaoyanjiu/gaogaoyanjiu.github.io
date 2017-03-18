@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>47云解析</title>
+<style type="text/css">body,html{padding: 0;margin: 0;width:100%;height:100%;background-color:#000; color:#999;}
+#a1,#loading,#error{padding: 0;margin: 0;width:100%;height:100%;background-color:#000; color:#999;}
+</style>
+<link href="https://api.47ks.com/favicon.ico" rel="shortcut icon">
+<script src="a_data/jquery.js"></script>
+<script type="text/javascript" src="a_data/ckplayer.js" charset="utf-8"></script>
+</head>
+<body style="overflow-y:hidden;">
+<div id="loading" style="display: none;" align="center"><strong><br><br><br><br><br><span class="tips">服务器正在解析中,请稍等....<font class="timemsg">25</font>s</span></strong><span class="timeout" style="display:none;color:#f90;">解析响应超时，请刷新重试！</span></div>
+<div id="a1" style=""><object pluginspage="http://www.macromedia.com/go/getflashplayer" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" id="ckplayer_a1" name="ckplayer_a1" align="middle" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="quality" value="high"><param name="bgcolor" value="#FFF"><param name="wmode" value="transparent"><param name="movie" value="/player/ckplayer/ckplayer.swf"><param name="flashvars" value="f=https%3A%2F%2Fapi.47ks.com%2Fyt%2Fwebmain.php%3Fkey%3D8ee0u8I35QDMTbnl6CAVJbwiGiHJjZjkuULWXESUTxlLcOmOC5fXSLi0Tkzdf0S90ob4f1kN%2Fn5OW81NsvgK%2Fkoj1OiExbM%2F%2BpbA83lp0%2BU%26token%3D0_knt1WHTmuEEV8j3PcECTguFfeEJqsNXZBhYtc%26cip%3D%26hd%3Dyh&amp;c=0&amp;s=2&amp;h=4&amp;p=1&amp;v=100&amp;e=1&amp;loaded=error"><embed allowscriptaccess="always" allowfullscreen="true" quality="high" bgcolor="#FFF" wmode="transparent" src="a_data/ckplayer.swf" flashvars="f=https%3A%2F%2Fapi.47ks.com%2Fyt%2Fwebmain.php%3Fkey%3D8ee0u8I35QDMTbnl6CAVJbwiGiHJjZjkuULWXESUTxlLcOmOC5fXSLi0Tkzdf0S90ob4f1kN%2Fn5OW81NsvgK%2Fkoj1OiExbM%2F%2BpbA83lp0%2BU%26token%3D0_knt1WHTmuEEV8j3PcECTguFfeEJqsNXZBhYtc%26cip%3D%26hd%3Dyh&amp;c=0&amp;s=2&amp;h=4&amp;p=1&amp;v=100&amp;e=1&amp;loaded=error" name="ckplayer_a1" id="ckplayer_a1" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" height="100%" width="100%"></object></div>
+<div id="error" style="display:none;color:#f90;" align="center"><br><br><br><br><br>视频解析失败/URL错误，请点击<a href="javascript:location.reload();">重试</a>...</div>
+<script type="text/javascript">
+var ptiqy = 0;
+var errid = 0;
+var isiPad = navigator.userAgent.match(/iPad|iPhone|Linux|Android|iPod/i) != null;
+	function sta(){
+		    $.post("/config/webmain.php", {"token": encodeURIComponent(get("42235Ph7Xof/dqTcBnO8rrtVNBMwj52DeozIYrckHBhTb/I3I4KIjzsPTisN8L6d1exBmi7gFNgJB0seS7A1QwNROnqtzKdP7pZhgG0D9I0")),"v": "http://v.youku.com/v_show/id_XMTI4NTY3MTY1Mg==.html","from": "http://www.wsnet.cc/yun/index.html","t": "","up": "0","ptype": "","cip": cip},
+    function(data){
+        if(data['success'] == 1){
+			if(isiPad || data['play'] == 'html5'){
+				$('#a1').html('<video id="vod" src="' + data['url'] + '" controls="controls" autoplay="autoplay" poster="/player/loading_wap.gif" width="100%" height="100%"></video>');
+				isiPad = true;
+				setInterval('error()',1000);
+			} else {
+				if(data['play'] == 'm3u8' || data['play']=='m3u8_list'){
+	                 var flashvars={f:'/player/m3u8/m3u8.swf',a:data['url'],c:0,p:1,s:4,v:100,lv:0,loaded:'error'};
+			    } else if(data['play'] == 'mp4'){
+					 var flashvars={f:data['url'],c:0,p:1,v:100,h:1,loaded:'error'};
+				} else if(data['play'] == 'xml'){
+	                 var flashvars={f:data['url'],c:0,s:2,h:4,p:1,v:100,e:1,loaded:'error'};
+				} else if(data['play'] == 'm3u8_q'){
+	                 var flashvars={f:data['url'],c:0,s:2,h:3,p:1,e:0,loaded:'error'};
+				}
+				var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
+                CKobject.embedSWF('/player/ckplayer/ckplayer.swf','a1','ckplayer_a1','100%','100%',flashvars,params);
+			}
+			$('#loading').hide();
+			$('#a1').show();
+		}else{
+			$('#loading').hide();
+			$('#a1').hide();
+			document.getElementById("error").style.display="";
+			if(data['msg']){
+				document.getElementById('error').innerHTML ='<br><br><br><br><br>'+ data['msg']
+			}else{
+				document.getElementById('error').innerHTML ='<br><br><br><br><br>播放失败/资源已失效，请尝试<a href="javascript:location.reload();">刷新</a>！'
+			}
+		}
+},"json");
+}
+/*function error(){
+	if(isiPad){
+	    var vod = document.getElementById("vod");
+	    if(vod.error.code==4) play_up();
+	}else{
+        CKobject.getObjectById('ckplayer_a1').addListener('error','play_up');
+	}
+}*/
+function tipstime(count){
+    $('.timemsg').text(count);
+    if (count == 40) {
+       $('.tips').hide();
+       $('.timeout').show();
+    } else {
+        count += 1;
+        setTimeout(function () {
+            tipstime(count);
+        }, 1000);
+    }
+}
+/*function play_up(){
+	errid++;
+	if(errid < 3){
+		$.post("/config/webmain.php", {"token": encodeURIComponent(get("4bc76DgPagVVlA3h9ObqiYOjpJWicB4Xh5WG+qqHABkStpP9jkz2vMw6vWTlMauOYvqUd48poiLJU/sKLQk7eg9vIoa2n8g9wgIL0PATj4c")),"v": "http://v.youku.com/v_show/id_XMTI4NTY3MTY1Mg==.html","from": "http://www.wsnet.cc/yun/index.html","t": "","up": "0"},
+		function(data){
+			if(data['success'] == 1){
+				location.href = '?v=http://v.youku.com/v_show/id_XMTI4NTY3MTY1Mg==.html&err='+errid;
+			}else{
+				$('#loading').hide();
+				$('#a1').hide();
+				$('#error').show();
+			}
+		},"json");
+	}
+}*/
+function getcip(){
+	$.get("https://data.video.iqiyi.com/v.f4v", function(cdnip){
+		sip = cdnip.match(/http:\/\/([^\"]*)\/v.f4v/);
+		cip = sip[1];
+		sta();
+	});
+}
+if (ptiqy == 1){
+	getcip();
+}else{
+	cip = null;
+	sta();
+}
+tipstime(0);
+//setTimeout('sta()',500);
+</script>
+  <script src="a_data/cpv3_47_ad.js"></script>
+  <div style="display:none;"><script src="a_data/z_stat.php" language="JavaScript"></script><script src="a_data/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1260594368" target="_blank" title="站长统计">站长统计</a></div>
+
+
+</body></html>
